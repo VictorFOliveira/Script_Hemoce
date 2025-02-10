@@ -149,3 +149,15 @@ Agendar o Backup Diariamente às 10h:
 Usar o Vacuum Analyze para Otimização:
 
 0 10 * * * psql -U postgres -h localhost -p 5432 -d hemoce -c "VACUUM ANALYZE"
+
+
+Na pasta consta um arquivo de restauração do banco, segue o comando para restaurar ele
+pg_restore -U postgres -h localhost -p 5432 -d hemoce -v /caminho/do/arquivo/hemoce_backup.dump
+
+pg_restore: Comando para restaurar o banco de dados a partir de um arquivo de backup.
+-U postgres: Especifica o usuário do PostgreSQL (neste caso, postgres).
+-h localhost: Especifica o host onde o banco de dados está rodando (neste caso, localmente).
+-p 5432: Porta do PostgreSQL (padrão é 5432).
+-d hemoce: Especifica o banco de dados de destino para a restauração (hemoce).
+-v: Ativa o modo verboso, mostrando mais detalhes sobre o processo de restauração.
+/caminho/do/arquivo/hemoce_backup.dump: O caminho completo do arquivo de backup que você deseja restaurar. No caso de estar usando o Windows, lembre-se de fornecer o caminho correto.
